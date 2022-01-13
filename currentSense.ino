@@ -1,11 +1,15 @@
-/*       AtMega328p - ASC712 Current Sensor - Temperature Sensor - DEMO
+/*       AtMega328p - ASC712 Current Sensor - Temperature Sensor - Bare Bones C DEMO
 
           Imogen Heard 11/01/2021
 
       Green LED Connected to PD3      -     Arduino Pin D3
        Blue LED Connected to PD2      -     Arduino Pin D2
       Current Sensor         PC0      -     Arduino Pin D14/A0
-    ` Temp Sensor            PC1      -     Arduino Pin D15/A1
+      Temp Sensor            PC1      -     Arduino Pin D15/A1
+      
+     
+    I wanted to use this sketch as a chance to learn how to interface with registers directly, rather than
+    over-reliance on the Arduino Libraries and Environment.
 
 
   Using instructions found at:
@@ -54,7 +58,7 @@ int main(void) {
 
 
 
-/*  Writing Direct to Registers
+/*         Writing Direct to Registers
 
     Using instructions found at:
     https://exploreembedded.com/wiki/AVR_I/O_Register_Configuration
@@ -66,7 +70,7 @@ int main(void) {
 */
 
 
-/* DDRx Data Direction Register
+/*        DDRx Data Direction Register
 
    Unless port is set as output, data from registers is not sent to contoller pins
 
@@ -79,7 +83,7 @@ int main(void) {
    DDRD = (1<<PD0) | (1<PD3) | (1<<PD6);   // Configure PD0, PD3, PD6 as output, all others as input
 */
 
-/* PORTx Send data to port pins
+/*        PORTx Send data to port pins
 
    PORTB = 0xff;  // Set all PORTB pins High
 
@@ -89,7 +93,7 @@ int main(void) {
 
 */
 
-/* PINx PORT Input register
+/*        PINx PORT Input register
  *  
  *  DDRB  = 0x00;  // Configure the PORTB as Input. 
     PORTB = 0xFF;  // Enable the internal Pull Up resistor of PORTB.
@@ -100,7 +104,22 @@ int main(void) {
  *  
  */
 
- /*  DAC Access using registers
+ /*       DAC Access using registers
   * 
   * 
   */
+
+/*        Timer register access
+*
+*
+*
+*/
+
+/*        PWM Drivers Register Access
+*
+*
+*
+*/
+
+
+
