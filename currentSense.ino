@@ -31,13 +31,13 @@
 
 #define BLINK_DELAY_MS 500
 
-void blink(uint8_t delayTime = 100) {
+void blink(uint8_t delayOneTime = 100, uint8_t delayTwoTime = 200) {
   //   PORTD = (1 << PD2); // Set PD2 High
   PORTD = (0 << PD3) | (1 << PD2); // Set PD3 Low
-  _delay_ms(100);     // Delay
+  _delay_ms(1000);     // Delay
   //    PORTD = (0 << PD2); // Set PD2 Low
   PORTD = (1 << PD3) | (0 << PD2); // Set PD3 Low
-  _delay_ms(30);     // Delay
+  _delay_ms(500);     // Delay
 }
 
 
@@ -50,7 +50,7 @@ int main(void) {
   DDRD = (1 << PD2) | (1 << PD3);
 
   while (1) {
-    blink();
+    blink(1000, 500);
   }
 }
 
@@ -120,6 +120,3 @@ int main(void) {
 *
 *
 */
-
-
-
