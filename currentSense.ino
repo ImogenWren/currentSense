@@ -6,8 +6,8 @@
        Blue LED Connected to PD2      -     Arduino Pin D2
       Current Sensor         PC0      -     Arduino Pin D14/A0
       Temp Sensor            PC1      -     Arduino Pin D15/A1
-      
-     
+
+
     I wanted to use this sketch as a chance to learn how to interface with registers directly, rather than
     over-reliance on the Arduino Libraries and Environment.
 
@@ -32,6 +32,10 @@
 
 #define BLINK_DELAY_MS 500
 
+// Pin Definitions for NANO
+
+#define D13 PB5
+
 void blink(uint8_t delayOneTime = 100, uint8_t delayTwoTime = 200) {
   //   PORTD = (1 << PD2); // Set PD2 High
   PORTD = (0 << PD3) | (1 << PD2); // Set PD3 Low
@@ -41,17 +45,32 @@ void blink(uint8_t delayOneTime = 100, uint8_t delayTwoTime = 200) {
   _delay_ms(200);     // Delay
 }
 
+void blinkSetup() {
+  // Use Data Direction Register to set LED pins as Output
+  DDRD = (1 << PD2) | (1 << PD3);
+}
+
+void nanoBlink() {
+  PORTB = (0 << PB5); // Set PD3 Low
+  _delay_ms(100);     // Delay
+  PORTB = (1 << PB5); // Set PD3 Low
+  _delay_ms(200);     // Delay
+}
+
+void nanoBlinkSetup() {
+  // Use Data Direction Register to set LED pins as Output
+  DDRB = 0xff;
+}
+
+
+
 
 
 int main(void) {
-
   Serial.begin(9600);
-
-  // Use Data Direction Register to set LED pins as Output
-  DDRD = (1 << PD2) | (1 << PD3);
-
+  nanoBlinkSetup();
   while (1) {
-    blink(1000, 500);
+    nanoBlink();
   }
 }
 
@@ -95,29 +114,29 @@ int main(void) {
 */
 
 /*        PINx PORT Input register
- *  
- *  DDRB  = 0x00;  // Configure the PORTB as Input. 
+
+    DDRB  = 0x00;  // Configure the PORTB as Input.
     PORTB = 0xFF;  // Enable the internal Pull Up resistor of PORTB.
- 
+
     DDRD = 0xff;  // Configure PORTD as Output
     PORTD = PINB; // Read the data from PORTB and send it to PORTD.
- *  
- *  
- */
 
- /*       DAC Access using registers
-  * 
-  * 
-  */
+
+*/
+
+/*       DAC Access using registers
+
+
+*/
 
 /*        Timer register access
-*
-*
-*
+
+
+
 */
 
 /*        PWM Drivers Register Access
-*
-*
-*
+
+
+
 */
