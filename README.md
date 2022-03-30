@@ -27,10 +27,10 @@
  
  ### Method
  
- 1. Install arduino CLI following instructions available online. [Instructions](https://siytek.com/arduino-cli-raspberry-pi/)
- 2. Modify arduino avr tools to account for working with tty/UART pins. [Instructions](https://siytek.com/raspberry-pi-gpio-arduino/)
- 3. NOTE: I had to edit the (new) avrdude file & remove `sudo` from the start of the `strace` line.
- 4. I also had to modify user permissions to make each file executable by any user
+##### 1. Install arduino CLI following instructions available online. [Instructions](https://siytek.com/arduino-cli-raspberry-pi/)
+##### 2. Modify arduino avr tools to account for working with tty/UART pins. [Instructions](https://siytek.com/raspberry-pi-gpio-arduino/)
+##### 3. NOTE: I had to edit the (new) avrdude file & remove `sudo` from the start of the `strace` line.
+##### 4. I also had to modify user permissions to make each file executable by any user
       
         sudo chmod ugo+rwx avrdude
         sudo chmod ugo+rwx avrdude-original
@@ -40,7 +40,7 @@ u = User level <br>
 g = group level <br>
 o = something <br>
  
- 5. Add /home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin to PATH ( Please someone tell me there is a way to perminantly do this)
+##### 5. Add /home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin to PATH ( Please someone tell me there is a way to perminantly do this)
 
 Navigate to the directory to be added to PATH
 
@@ -52,11 +52,11 @@ enter the command:
 
 This only works untill raspi is rebooted, I would like to find a perminant method for doing this.
  
- 5. Compile .ino file inside arduino sketch folder using command:
+##### 6. Compile .ino file inside arduino sketch folder using command:
 
         arduino-cli compile --fqbn arduino:avr:nano currentSense
 
-6. Upload compiled hex file to board:
+##### 7. Upload compiled hex file to board:
 
        arduino-cli upload --port /dev/ttyAMA0 --fqbn arduino:avr:nano ~/currentSense
 
@@ -69,5 +69,5 @@ Ignore `strace: | autoreset: Broken pipe` output on successful upload it is an u
  
  1. Changing global access to GPIO Pins: [Raspi Hardware Permissions](https://roboticsbackend.com/raspberry-pi-hardware-permissions/)
     - Especially `sudo chmod g+rw /dev/gpiomem`
- 3. Adding `/home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin` to PATH$ in `/home/.bashrc` file. I dont think this worked, it was an attempt for a perminant fix for step 5 above.
+ 2. Adding `/home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin` to PATH$ in `/home/.bashrc` file. I dont think this worked, it was an attempt for a perminant fix for step 5 above. [adding executables to PATH](https://askubuntu.com/questions/322772/how-do-i-add-an-executable-to-my-search-path)
  
