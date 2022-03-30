@@ -37,20 +37,20 @@
 
 Navigate to the directory to be added to PATH
 
-     `cd /home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin`
+     ```cd /home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin```
 
 enter the command:
 
-`PATH="$(pwd):$PATH"`
+```PATH="$(pwd):$PATH"```
 
 This only works untill raspi is rebooted, I would like to find a perminant method for doing this.
  
  5. Compile .ino file inside arduino sketch folder using command:
 
-`arduino-cli compile --fqbn arduino:avr:nano currentSense`
+```arduino-cli compile --fqbn arduino:avr:nano currentSense```
 
 6. Upload compiled hex file to board:
-`arduino-cli upload --port /dev/ttyAMA0 --fqbn arduino:avr:nano ~/currentSense`
+```arduino-cli upload --port /dev/ttyAMA0 --fqbn arduino:avr:nano ~/currentSense```
 
 Ignore `strace: | autoreset: Broken pipe` it is an unavoidable xconcequence of the sheer number of workarounds this required.
 
