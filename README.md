@@ -31,13 +31,13 @@
  2. Modify arduino avr tools to account for working with tty/UART pins. [Instructions](https://siytek.com/raspberry-pi-gpio-arduino/)
  3. NOTE: I had to edit the (new) avrdude file & remove `sudo` from the start of the `strace` line.
  4. I also had to modify user permissions to make each file executable by any user:
- `sudo chmod `
+      `sudo chmod `
  
  5. Add /home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin to PATH ( Please someone tell me there is a way to perminantly do this)
 
 Navigate to the directory to be added to PATH
 
-`cd /home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin`
+     `cd /home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin`
 
 enter the command:
 
