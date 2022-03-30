@@ -30,7 +30,7 @@
 ##### 1. Install arduino CLI following instructions available online. [Instructions](https://siytek.com/arduino-cli-raspberry-pi/)
 ##### 2. Modify arduino avr tools to account for working with tty/UART pins. [Instructions](https://siytek.com/raspberry-pi-gpio-arduino/)
 ##### 3. NOTE: I had to edit the (new) avrdude file & remove `sudo` from the start of the `strace` line.
-##### 4. I also had to modify user permissions to make each file executable by any user
+##### 4. I also had to modify user permissions to make each file executable by any user [User Permissions](https://www.pluralsight.com/blog/it-ops/linux-file-permissions)
       
         sudo chmod ugo+rwx avrdude
         sudo chmod ugo+rwx avrdude-original
@@ -71,3 +71,7 @@ Ignore `strace: | autoreset: Broken pipe` output on successful upload it is an u
     - Especially `sudo chmod g+rw /dev/gpiomem`
  2. Adding `/home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin` to PATH$ in `/home/.bashrc` file. I dont think this worked, it was an attempt for a perminant fix for step 5 above. [adding executables to PATH](https://askubuntu.com/questions/322772/how-do-i-add-an-executable-to-my-search-path)
  
+ 
+ ### Further Reading
+ 
+[Arduino Sketch Uploading Process - What is Actually Occuring](https://www.instructables.com/Overview-the-Arduino-sketch-uploading-process-and-/)
