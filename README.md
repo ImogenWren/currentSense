@@ -1,7 +1,7 @@
 # currentSense
  Bare Bones C on AtMega328p current sensing PCB
  
- 
+ --------
  ## Interface with AtMega-Demo Current Sensing Boards
  
  These demo boards use a 12MHz oscillator, making programming via typical means difficult.
@@ -16,7 +16,7 @@
  5. Port COM 7
  6. BOD (brownout detection) Disabled.
  
- 
+-------- 
  ## Programming using Raspi & UART with AVRdude
  
  This was a little tricky, and there were several workarounds I needed to make this work. I wont go into every detail here, 
@@ -31,7 +31,12 @@
  2. Modify arduino avr tools to account for working with tty/UART pins. [Instructions](https://siytek.com/raspberry-pi-gpio-arduino/)
  3. NOTE: I had to edit the (new) avrdude file & remove `sudo` from the start of the `strace` line.
  4. I also had to modify user permissions to make each file executable by any user:
-      `sudo chmod `
+      ```sudo chmod ugo+rwx avrdude```
+      ```sudo chmod ugo+rwx avrdude-original```
+      ```sudo chmod ugo+rwx autoreset```
+      u = User level <br>
+      g = group level <br>
+      o = something <br>
  
  5. Add /home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin to PATH ( Please someone tell me there is a way to perminantly do this)
 
@@ -60,5 +65,6 @@ Ignore `strace: | autoreset: Broken pipe` it is an unavoidable xconcequence of t
  I dont _think_ these steps had an impact on my eventual success, however they may be worth trying if lost.
  
  1. Changing global access to GPIO Pins: [Raspi Hardware Permissions](https://roboticsbackend.com/raspberry-pi-hardware-permissions/)
- 2. Adding `/home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin` to PATH$ in `/home/.bashrc` file. I dont think this worked, it was an attempt for a perminant fix for step 5 above.
+    - Especially `sudo chmod g+rw /dev/gpiomem`
+ 3. Adding `/home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin` to PATH$ in `/home/.bashrc` file. I dont think this worked, it was an attempt for a perminant fix for step 5 above.
  
