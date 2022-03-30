@@ -60,7 +60,7 @@ This only works untill raspi is rebooted, I would like to find a perminant metho
 
        arduino-cli upload --port /dev/ttyAMA0 --fqbn arduino:avr:nano ~/currentSense
 
-Ignore `strace: | autoreset: Broken pipe` it is an unavoidable xconcequence of the sheer number of workarounds this required.
+Ignore `strace: | autoreset: Broken pipe` output on successful upload it is an unavoidable concequence of the sheer number of workarounds this required.
 
 
  
