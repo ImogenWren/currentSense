@@ -40,7 +40,27 @@
  
 ##### 1. Install arduino CLI following instructions available online. [Instructions](https://siytek.com/arduino-cli-raspberry-pi/)
 ##### 2. Modify arduino avr tools to account for working with tty/UART pins. [Instructions](https://siytek.com/raspberry-pi-gpio-arduino/)
+
+
 ##### 3. NOTE: I had to edit the (new) avrdude file & remove `sudo` from the start of the `strace` line.
+
+###### Note:
+To try and replicate the double tap reset required for Nano IoT33, going to modify the new autoreset avrdude python file
+`nano /home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/autoreset`
+
+added these lines to the bottom of `def reset()`
+```
+#added lines guessing at required delays
+  time.sleep(0.5)
+  GPIO.output(pin, GPIO.HIGH)
+  time.sleep(0.32)
+  GPIO.output(pin, GPIO.LOW)
+  time.sleep(1)
+```
+Hopefully this will be enough to trigger programming mode for the IoT33, added a sleep at the end to
+try and make it work cleanly with non 33 IoT boards as well. Will need experimentation
+
+
 ##### 4. I also had to modify user permissions to make each file executable by any user [User Permissions](https://www.pluralsight.com/blog/it-ops/linux-file-permissions)
       
         sudo chmod ugo+rwx avrdude
