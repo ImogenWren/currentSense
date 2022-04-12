@@ -180,7 +180,11 @@ How this will work when we move to UART and Raspi I do not know at this point
 
 adding arduino SAMD21 boards to board manager
 
-http://downloads.arduino.cc/Hourly/samd/package_samd-hourly-build_index.json
+Or if you need SAMD21/SAMD51 support:
+`arduino-cli core install arduino:samd`
+
+This is not needed! Do not add to .yaml file!
+`http://downloads.arduino.cc/Hourly/samd/package_samd-hourly-build_index.json`
 
  
  #### Connections:
@@ -205,14 +209,20 @@ as above with programming Nano, but changed compile and upload lines to:
        
  THIS IS WORKING!!! BUUUUT
  
- Need to hit reset x2 on the board to put it into programming mode, I am wondering if the python file we modified in AVRdude can
- be further modified to provide a double tap on the reset.
+ Need to hit reset x2 on the board to put it into programming mode, I am wondering if the python file we modified in AVRdude can be further modified to provide a double tap on the reset.
+ 
+Better - Scripted solution to autoresetting IoT 33 board simply run
+
+`sh upload33iot.sh`
+
+in sketch folder to compile sketch, force programming mode, then upload the sketch. Works most of the time.
+
 
 
 ------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------
 # General Arduino Command Line Interface (cli) Help
-[Getting Started Arduino CLI](https://create.arduino.cc/projecthub/B45i/getting-started-with-arduino-cli-7652a5)
+[Getting Started Arduino CLI](https://create.arduino.cc/projecthub/B45i/getting-started-with-arduino-cli-7652a5) <br>
 [Arduono CLI Commands List](https://arduino.github.io/arduino-cli/0.21/commands/arduino-cli/)
 
 To add board managers they must be added to the .yaml file found at
