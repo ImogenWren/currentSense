@@ -161,7 +161,22 @@ http://downloads.arduino.cc/Hourly/samd/package_samd-hourly-build_index.json
 
 as above with programming Nano, but changed compile and upload lines to:
 
+##### 6. Compile .ino file inside arduino sketch folder using command:
 
+        arduino-cli compile --fqbn arduino:samd:nano_33_iot currentSense
+
+##### 7. Upload compiled hex file to board:
+
+       arduino-cli upload --port /dev/ttyAMA0 --fqbn arduino:samd:nano_33_iot ~/currentSense
+       
+ THIS IS WORKING!!! BUUUUT
+ 
+ Need to hit reset x2 on the board to put it into programming mode, I am wondering if the python file we modified in AVRdude can
+ be further modified to provide a double tap on the reset.
+
+
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
 # General Arduino Command Line Interface (cli) Help
 [Getting Started Arduino CLI](https://create.arduino.cc/projecthub/B45i/getting-started-with-arduino-cli-7652a5)
 [Arduono CLI Commands List](https://arduino.github.io/arduino-cli/0.21/commands/arduino-cli/)
