@@ -144,6 +144,10 @@ How this will work when we move to UART and Raspi I do not know at this point
 
 ## Programming Arduino Nano IoT 33 - WITH Raspi & UART
 
+adding arduino SAMD21 boards to board manager
+
+http://downloads.arduino.cc/Hourly/samd/package_samd-hourly-build_index.json
+
  
  #### Connections:
  Pin Numbers
@@ -154,6 +158,60 @@ How this will work when we move to UART and Raspi I do not know at this point
  | Rx0		| GPIO 14 (UART0 TxD)	| 8 		|
  | Tx1		| GPIO 15 (UART0 RxD)	| 10		|
  | RST		| GPIO 18		| 12		|
+
+as above with programming Nano, but changed compile and upload lines to:
+
+
+# General Arduino Command Line Interface (cli) Help
+[Getting Started Arduino CLI](https://create.arduino.cc/projecthub/B45i/getting-started-with-arduino-cli-7652a5)
+[Arduono CLI Commands List](https://arduino.github.io/arduino-cli/0.21/commands/arduino-cli/)
+
+To add board managers they must be added to the .yaml file found at
+
+`/home/pi/.arduino15/arduino-cli.yaml`
+
+Then Install must be run to install boards
+
+# Arduino board support like Leonardo/Uno
+`arduino-cli core install arduino:avr`
+# Or if you need SAMD21/SAMD51 support:
+`arduino-cli core install arduino:samd`
+
+
+
+
+List attached boards:
+
+`arduino-cli board list`
+Doesnt always work
+
+Update the core after adding new board manager URLs to
+`Local\Arduino15\arduino-cli.yaml`
+
+`arduino-cli core update-index`
+
+then run install for added board libraries
+
+`arduino-cli core install esp8266:esp8266`
+
+install / search for libraries
+`arduino-cli lib search LibraryName`
+
+List All Installed Board FQBNs
+
+`arduino-cli board listall`
+
+Open a communication port with a board.
+
+
+`arduino-cli monitor [flags]`
+
+
+### FQBN - Fully Qualified Board Name
+
+
+Here the FQBN stands for Fully Qualified board name, which is used to denote a particular board.
+for example arduino:avr:nano is the fqbn for Arduino Nano, and arduino:avr:uno for Uno boards
 
 
 
