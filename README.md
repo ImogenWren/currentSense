@@ -101,7 +101,12 @@ Crontab Task with Logs redirect and sleep before execution
 
 Ignore `strace: | autoreset: Broken pipe` output on successful upload it is an unavoidable concequence of the sheer number of workarounds this required.
 
+## MORE SCRIPTING
 
+I have automated the process for compiling and uploading new firmware to nano using
+`uploadNano.sh`
+
+I will add another for uploadNanoIoT.sh when I work out how to do the do.
  
 ### Other Things I tried:
  I dont _think_ these steps had an impact on my eventual success, however they may be worth trying if lost.
