@@ -27,6 +27,17 @@
  
  ### Method
  
+ #### Connections:
+ Pin Numbers
+ |Nano	|Rpi PinName		| Rpi PinNo.	|
+ |---	|---			|---		|
+ | 5v	| 5v			| 2 or 4	|
+ | GND	| GND			| 6		|
+  | Rx0	| GPIO 14 (UART0 TxD)	| 8 		|
+ | Tx1	| GPIO 15 (UART0 RxD)	| 10		|
+ | RST	| GPIO 18		| 12		|
+ 
+ 
 ##### 1. Install arduino CLI following instructions available online. [Instructions](https://siytek.com/arduino-cli-raspberry-pi/)
 ##### 2. Modify arduino avr tools to account for working with tty/UART pins. [Instructions](https://siytek.com/raspberry-pi-gpio-arduino/)
 ##### 3. NOTE: I had to edit the (new) avrdude file & remove `sudo` from the start of the `strace` line.
