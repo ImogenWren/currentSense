@@ -172,9 +172,9 @@ To add board managers they must be added to the .yaml file found at
 
 Then Install must be run to install boards
 
-# Arduino board support like Leonardo/Uno
+Arduino board support like Leonardo/Uno
 `arduino-cli core install arduino:avr`
-# Or if you need SAMD21/SAMD51 support:
+Or if you need SAMD21/SAMD51 support:
 `arduino-cli core install arduino:samd`
 
 
