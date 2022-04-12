@@ -31,7 +31,7 @@
  Pin Numbers
  |Nano	|Rpi PinName		| Rpi PinNo.	|
  |---	|---			|---		|
- | 5v	| 5v			| 2 or 4	|
+ | 3v3	| 3v3			| 1		|
  | GND	| GND			| 6		|
   | Rx0	| GPIO 14 (UART0 TxD)	| 8 		|
  | Tx1	| GPIO 15 (UART0 RxD)	| 10		|
@@ -141,6 +141,19 @@ The arduino nano 33 IoT with the SAMD21 MCU uses a slightly different process to
 2. Double press the reset button to put the board into programming mode. The LED_BUILTIN will fade to show you it is ready for programming.
 
 How this will work when we move to UART and Raspi I do not know at this point
+
+## Programming Arduino Nano IoT 33 - WITH Raspi & UART
+
+ 
+ #### Connections:
+ Pin Numbers
+ |Nano IoT 33	|Rpi PinName		| Rpi PinNo.	|
+ |---		|---			|---		|
+ | 3v3		| 3v3			| 1		|
+ | GND		| GND			| 6		|
+ | Rx0		| GPIO 14 (UART0 TxD)	| 8 		|
+ | Tx1		| GPIO 15 (UART0 RxD)	| 10		|
+ | RST		| GPIO 18		| 12		|
 
 
 
