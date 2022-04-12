@@ -22,8 +22,8 @@
 
 */
 
-//#define AVR_NATIVE
-#define __IOT33__
+#define AVR_NATIVE
+//#define __IOT33__
 
 
 #ifdef AVR_NATIVE
@@ -45,10 +45,10 @@
 void blink(uint8_t delayOneTime = 100, uint8_t delayTwoTime = 200) {
   //   PORTD = (1 << PD2); // Set PD2 High
   PORTD = (0 << PD3) | (1 << PD2); // Set PD3 Low
-  _delay_ms(500);     // Delay
+  _delay_ms(1300);     // Delay
   //    PORTD = (0 << PD2); // Set PD2 Low
   PORTD = (1 << PD3) | (0 << PD2); // Set PD3 Low
-  _delay_ms(200);     // Delay
+  _delay_ms(300);     // Delay
 }
 
 void blinkSetup() {
