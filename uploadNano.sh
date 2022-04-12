@@ -6,9 +6,9 @@
 echo "starting compile"
 arduino-cli compile --fqbn arduino:avr:nano currentSense
 echo "software compiled"
-sleep 4
+sleep 1
 echo "Starting Upload"
 arduino-cli upload --port /dev/ttyAMA0 --fqbn arduino:avr:nano ~/currentSense
 echo "Upload Completed"
-sleep 2
+sleep 1
 
