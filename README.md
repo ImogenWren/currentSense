@@ -201,17 +201,64 @@ List All Installed Board FQBNs
 
 `arduino-cli board listall`
 
+## THIS ONE IS USEFUL
+
 Open a communication port with a board.
 
 
 `arduino-cli monitor [flags]`
 
 
-### FQBN - Fully Qualified Board Name
+### FQBN - Fully Qualified Board Names 
 
 
 Here the FQBN stands for Fully Qualified board name, which is used to denote a particular board.
 for example arduino:avr:nano is the fqbn for Arduino Nano, and arduino:avr:uno for Uno boards
 
+Board Name                          FQBN
+Adafruit Circuit Playground         arduino:avr:circuitplay32u4cat
+Adafruit Circuit Playground Express arduino:samd:adafruit_circuitplayground_m0
+Arduino BT                          arduino:avr:bt
+Arduino Duemilanove or Diecimila    arduino:avr:diecimila
+Arduino Esplora                     arduino:avr:esplora
+Arduino Ethernet                    arduino:avr:ethernet
+Arduino Fio                         arduino:avr:fio
+Arduino Gemma                       arduino:avr:gemma
+Arduino Industrial 101              arduino:avr:chiwawa
+Arduino Leonardo                    arduino:avr:leonardo
+Arduino Leonardo ETH                arduino:avr:leonardoeth
+Arduino M0                          arduino:samd:mzero_bl
+Arduino M0 Pro (Native USB Port)    arduino:samd:mzero_pro_bl
+Arduino M0 Pro (Programming Port)   arduino:samd:mzero_pro_bl_dbg
+Arduino MKR FOX 1200                arduino:samd:mkrfox1200
+Arduino MKR GSM 1400                arduino:samd:mkrgsm1400
+Arduino MKR NB 1500                 arduino:samd:mkrnb1500
+Arduino MKR Vidor 4000              arduino:samd:mkrvidor4000
+Arduino MKR WAN 1300                arduino:samd:mkrwan1300
+Arduino MKR WAN 1310                arduino:samd:mkrwan1310
+Arduino MKR WiFi 1010               arduino:samd:mkrwifi1010
+Arduino MKR1000                     arduino:samd:mkr1000
+Arduino MKRZERO                     arduino:samd:mkrzero
+Arduino Mega ADK                    arduino:avr:megaADK
+Arduino Mega or Mega 2560           arduino:avr:mega
+Arduino Micro                       arduino:avr:micro
+Arduino Mini                        arduino:avr:mini
+Arduino NANO 33 IoT                 arduino:samd:nano_33_iot
+Arduino NG or older                 arduino:avr:atmegang
+Arduino Nano                        arduino:avr:nano
+Arduino Pro or Pro Mini             arduino:avr:pro
+Arduino Robot Control               arduino:avr:robotControl
+Arduino Robot Motor                 arduino:avr:robotMotor
+Arduino Tian                        arduino:samd:tian
+Arduino Uno                         arduino:avr:uno
+Arduino Uno Mini                    arduino:avr:unomini
+Arduino Uno WiFi                    arduino:avr:unowifi
+Arduino Yún                         arduino:avr:yun
+Arduino Yún Mini                    arduino:avr:yunmini
+Arduino Zero (Native USB Port)      arduino:samd:arduino_zero_native
+Arduino Zero (Programming Port)     arduino:samd:arduino_zero_edbg
+LilyPad Arduino                     arduino:avr:lilypad
+LilyPad Arduino USB                 arduino:avr:LilyPadUSB
+Linino One                          arduino:avr:one
 
 
