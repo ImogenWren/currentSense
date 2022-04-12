@@ -60,6 +60,20 @@ added these lines to the bottom of `def reset()`
 Hopefully this will be enough to trigger programming mode for the IoT33, added a sleep at the end to
 try and make it work cleanly with non 33 IoT boards as well. Will need experimentation
 
+THIS DID NOT WORK:
+I think because it trys to look for comms before running the autoreset script, so I am going to put it in
+a new python file and call it
+first in the bash script I wrote to simplify the uploading process. 
+
+
+hopefully the 2nd reset from autoreset will not undo this step. first I can test with just the python script to see if it even goes into programming mode.
+
+YES double tapping reset using GPIO worked BUT then AVRdude autoreset takes it out of programming mode BUT
+
+SOLUTION: Actually it just seems to work most of the time 2/3 at least
+
+
+
 
 ##### 4. I also had to modify user permissions to make each file executable by any user [User Permissions](https://www.pluralsight.com/blog/it-ops/linux-file-permissions)
       
