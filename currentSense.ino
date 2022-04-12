@@ -22,8 +22,8 @@
 
 */
 
-#define AVR_NATIVE
-//#define __IOT33__
+//#define AVR_NATIVE
+#define __IOT33__
 
 
 #ifdef AVR_NATIVE
@@ -93,8 +93,8 @@ int main(void) {
 
 #define LED_PIN LED_BUILTIN
 
-#define BLINK_HIGH 500
-#define BLINK_LOW  1000
+#define BLINK_HIGH 100
+#define BLINK_LOW  50
 
 
 
