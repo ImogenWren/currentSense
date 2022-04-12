@@ -51,6 +51,45 @@ enter the command:
      PATH="$(pwd):$PATH"
 
 This only works untill raspi is rebooted, I would like to find a perminant method for doing this.
+
+-------
+## My Hack Way of Perminantly Doing this
+_bash script it on startup_
+
+Step 1: Save this file in currentSense as `addAVRpath.sh`
+```
+#!/bin/sh
+# addAVRpath.sh
+# Navigate to home directory, then to this directory.
+# Then add directory to path
+
+
+
+cd /
+cd /home/pi/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin
+PATH="$(pwd):$PATH"
+cd /
+
+```
+
+Step 2: Make Launcher Executable
+`chmod 755 addAVRpath.sh`
+
+Script can be tested with
+
+sh addAVRpath.sh
+
+
+Step 4: Add task to crontab file
+`crontab -e` (use `sudo crontab -e`) for tasks that require sudo privilages.
+
+Crontab Task with Logs redirect and sleep before execution
+
+`@reboot sleep 30 && sh /home/pi/currentSense/addAVRpath.sh >/home/pi/logs/cronlog 2>&1`
+
+#### End of Hacky Way of Doing it
+-------
+
  
 ##### 6. Compile .ino file inside arduino sketch folder using command:
 
