@@ -17,7 +17,7 @@
  6. BOD (brownout detection) Disabled.
  
 -------- 
- ## Programming using Raspi & UART with AVRdude
+ ## Programming Arduino Nano using Raspi & UART with AVRdude
  
  This was a little tricky, and there were several workarounds I needed to make this work. I wont go into every detail here, 
  but I will try and reference the areas that were sticking for me.
@@ -75,3 +75,17 @@ Ignore `strace: | autoreset: Broken pipe` output on successful upload it is an u
  ### Further Reading
  
 [Arduino Sketch Uploading Process - What is Actually Occuring](https://www.instructables.com/Overview-the-Arduino-sketch-uploading-process-and-/)
+
+
+## Programming Arduino Nano IoT 33 - WITH Arduino IDE
+
+The arduino nano 33 IoT with the SAMD21 MCU uses a slightly different process to the AVR boards. The COM port is software defined, so if you are having problems uploading to Arduino Nano IoT 33 Try these steps.
+
+1. Avoid using C++ standard int main() and use the arduino standard void setup() and void loop() 
+	- I assume that the precompiler is adding a fair amount of additional workarounds to the code you add to the IDE, things will stop working properly if you try and use a more typically native C topology.
+2. Double press the reset button to put the board into programming mode. The LED_BUILTIN will fade to show you it is ready for programming.
+
+How this will work when we move to UART and Raspi I do not know at this point
+
+
+

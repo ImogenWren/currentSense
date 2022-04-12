@@ -22,7 +22,11 @@
 
 */
 
+//#define AVR_NATIVE
+#define __IOT33__
 
+
+#ifdef AVR_NATIVE
 
 #include <avr/io.h>
 #include <util/delay.h>
@@ -35,6 +39,8 @@
 // Pin Definitions for NANO
 
 #define D13 PB5
+
+
 
 void blink(uint8_t delayOneTime = 100, uint8_t delayTwoTime = 200) {
   //   PORTD = (1 << PD2); // Set PD2 High
@@ -73,6 +79,51 @@ int main(void) {
     nanoBlink();
   }
 }
+
+
+
+#elif defined (__IOT33__) || defined (__AVR__)
+
+
+/*
+    Here program is written in more typical arduino flavour to use as a quick test for arduino hardware
+
+*/
+
+
+#define LED_PIN LED_BUILTIN
+
+#define BLINK_HIGH 500
+#define BLINK_LOW  1000
+
+
+
+void setup(){
+  //  Serial.begin(115200);
+  nanoBlinkSetup();  
+}
+
+void loop(){  nanoBlink(BLINK_HIGH, BLINK_LOW);
+  
+}
+
+void nanoBlinkSetup() {
+  pinMode(LED_PIN, OUTPUT);
+}
+
+
+void nanoBlink(int high_pulse_mS, int low_pulse_mS) {
+  digitalWrite(LED_PIN, HIGH);
+ // Serial.println("LED HIGH");
+  delay(high_pulse_mS);
+  digitalWrite(LED_PIN, 0);
+ // Serial.println("LED LOW");
+  delay(low_pulse_mS);
+}
+
+
+#endif
+
 
 
 
