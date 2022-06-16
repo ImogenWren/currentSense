@@ -23,7 +23,8 @@
 */
 
 //#define AVR_NATIVE
-#define __IOT33__
+//#define __IOT33__
+#define SAMD21
 
 
 #ifdef AVR_NATIVE
@@ -82,6 +83,32 @@ int main(void) {
 
 
 
+
+
+#elif defined (SAMD21)
+
+/*  Combines Arduino Flavor for setup and loop but with direct register reads to avoid using digitalRead and analogRead functions that may be causing issues with SAMD21 boards
+
+
+*/
+
+
+void setup() {
+  Serial.begin(115200);
+  while ( !Serial ) delay(10);   // Might be required for Nano IoT 33
+  DDRC = 0x00;   // Configure PORTD as Input
+}
+
+
+void loop(){
+
+
+  
+}
+
+
+
+
 #elif defined (__IOT33__) || defined (__AVR__)
 
 
@@ -98,13 +125,14 @@ int main(void) {
 
 
 
-void setup(){
+void setup() {
   //  Serial.begin(115200);
-  nanoBlinkSetup();  
+  nanoBlinkSetup();
 }
 
-void loop(){  nanoBlink(BLINK_HIGH, BLINK_LOW);
-  
+void loop() {
+  nanoBlink(BLINK_HIGH, BLINK_LOW);
+
 }
 
 void nanoBlinkSetup() {
@@ -114,10 +142,10 @@ void nanoBlinkSetup() {
 
 void nanoBlink(int high_pulse_mS, int low_pulse_mS) {
   digitalWrite(LED_PIN, HIGH);
- // Serial.println("LED HIGH");
+  // Serial.println("LED HIGH");
   delay(high_pulse_mS);
   digitalWrite(LED_PIN, 0);
- // Serial.println("LED LOW");
+  // Serial.println("LED LOW");
   delay(low_pulse_mS);
 }
 
